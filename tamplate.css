@@ -1,0 +1,32 @@
+
+			article{
+				margin-top: 50px;
+				padding: 50px 10px 10px 10px;	
+				background-color: gainsboro;
+			}
+            
+            
+            #main{
+                margin-top: 50px;
+                padding: 10px 10px 10px 10px;    
+            }
+         
+            #login_box, #register_box{
+                display: none;
+            }
+            
+            #error{
+                margin-top: 10px;
+            }
+
+			#footer{
+				padding: 10px 10px 10px 10px;	
+			}
+
+            #abot {
+                font-family: fantasy;
+                font-style: italic;
+                color: darkorange;
+            }
+
+
