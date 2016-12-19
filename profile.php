@@ -61,7 +61,7 @@
                       <div class="panel-body">
                               <div class="row"> <!-- SHOW PICTURE -->
                                   <div class="col-xs-4 col-md-2" style="">
-                                            <img src="img/no_image  .jpeg" alt="Profile Picture" class="img-thumbnail">
+                                            <img src="img/no_image.jpeg" alt="Profile Picture" class="img-thumbnail">
                                   </div> <!-- SHOW USER DETAILS -->
                                   <div class="col-xs-14 col-sm-8 col-md-10" style="border-left:1px solid gainsboro">
                                   <form class="form-horizontal" action="" method="post">
