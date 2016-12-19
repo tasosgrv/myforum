@@ -6,7 +6,7 @@
 
     if(isset($_POST['submit_login'])){
         if(empty($_POST['username']) || empty($_POST['password'])){
-             $error="<p class='alert alert-danger' id='error'>Πρέπει να συμπληρώσεις και τα δυο κενά</p>";
+             $error="<p class='alert alert-danger' id='error'>Πρέπει να συμπληρώσεις και τα δυο πεδία</p>";
         }else{
         
             //συνδεση με τη mysql
@@ -14,7 +14,7 @@
             
             // οι τιμες απ τη φορμα μπαινουν σε μεταβλητες
             $username = mysqli_real_escape_string($connect, $_POST['username']);
-            $password = mysqli_real_escape_string($connect, $_POST['password']);
+            $password = md5(mysqli_real_escape_string($connect, $_POST['password']));
             
             //δημιουργεια ερωτήματος
             $question="SELECT * FROM users WHERE username LIKE '$username' AND password LIKE '$password'";

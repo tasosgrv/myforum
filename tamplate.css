@@ -1,18 +1,16 @@
 
 			article{
-				margin-top: 50px;
+				margin-top: 45px;
 				padding: 50px 10px 10px 10px;	
 				background-color: gainsboro;
+                display: none;
+				z-index: 1;
 			}
             
             
             #main{
                 margin-top: 50px;
                 padding: 10px 10px 10px 10px;    
-            }
-         
-            #login_box, #register_box{
-                display: none;
             }
             
             #error{

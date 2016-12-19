@@ -36,7 +36,7 @@
                         <label>Username:</label>
                         <input type="text" name="username" maxlength="20" class="font"><p>
                         <label>Password: </label>
-                        <input type="password" name="password" maxlength="20"><p>
+                        <input type="password" name="password" maxlength="32"><p>
                         <button type="submit" name="submit_login" class="btn btn-primary">Αποστολή</button>
                         <button type="reset" class="btn btn-default">Καθαρισμός</button><br><br>
                         

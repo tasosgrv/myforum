@@ -3,6 +3,7 @@
 <?php
     session_start();
     require_once('utils.php');
+    $error='';
     if(isset($_GET['id']) && is_numeric($_GET['id'])){
         $connect = db_connect();
 
@@ -11,6 +12,9 @@
         $question="SELECT * FROM users WHERE user_id = '$profile_id'";
         $result = mysqli_query($connect, $question) or die('Error to query' .mysqli_connect_error());
         $users = mysqli_fetch_array($result);
+        if(@mysqli_num_rows($result)==0){
+            $error="<p class='alert alert-danger' id='error'>Αυτος ο χρήστης δεν υπάρχει</p>";
+        }
         
     }else{
         $profile_id= 'SFALMA';
@@ -43,6 +47,7 @@
     <!-- NAVBAR AND LOGIN  AND REGISTER BOXEES-->
     <?php
         include('navbar.php');
+
     ?>
     
     
@@ -50,18 +55,35 @@
     <!-- MAIN PAGE -->
     
         <div id=main>
+            <?php if(isset($_SESSION['login_user'])){  //an yparxei connected user KAI einai katoxos tou profile?>
             <div class="panel panel-primary">
                     <div class="panel-heading">Προφίλ Χρήστη</div>
-                    <?php echo $users['username']?>
-            </div>    
+                      <div class="panel-body">
+                              <div class="row"> <!-- SHOW PICTURE -->
+                                  <div class="col-xs-4 col-md-2" style="">
+                                            <img src="img/no_image  .jpeg" alt="Profile Picture" class="img-thumbnail">
+                                  </div> <!-- SHOW USER DETAILS -->
+                                  <div class="col-xs-14 col-sm-8 col-md-10" style="border-left:1px solid gainsboro">
+                                  <form class="form-horizontal" action="" method="post">
+                                      <label>Username:</label><br>
+                                      <input type="text" name="username" value="<?php echo $users['username']?>" maxlength="20" disabled="true"><br>
+                                      <label>Email:</label><br>
+                                      <input type="text" name="email" value="<?php echo $users['email']?>" maxlength="100" disabled="true">
+                                  </form>
+                                 </div>
+                              </div>
+                              <?php echo $error?>
+                      </div>
+            </div>
+            <?php }else{ ?>
+
+            <p class='alert alert-danger' id='error'>Για να μπορέσεις να δεις τα προφίλ των χρηστών πρέπει να είσαι <b><a href="navbar.php">συνδεδεμένος</a></b><br>Αν δεν έχεις λογαριασμό, κάνε <b><a href="navbar.php">εγγραφή</a></b></p>
+            <?php } ?>
         </div>
     
     <!-- FOOTER-->
     <?php
         include('footer.php');
     ?>
-
-    
-    
 </body>
 </html>
