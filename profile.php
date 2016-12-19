@@ -4,7 +4,7 @@
     session_start();
     require_once('utils.php');
     $error='';
-    if(isset($_GET['id']) && is_numeric($_GET['id'])){
+    if(isset($_GET['id']) && is_numeric($_GET['id']) && empty($_GET['id'])===false){
         $connect = db_connect();
 
         $profile_id=$_GET['id'];
@@ -13,11 +13,13 @@
         $result = mysqli_query($connect, $question) or die('Error to query' .mysqli_connect_error());
         $users = mysqli_fetch_array($result);
         if(@mysqli_num_rows($result)==0){
-            $error="<p class='alert alert-danger' id='error'>Αυτος ο χρήστης δεν υπάρχει</p>";
+            header("Location: index.php");
+            exit();
         }
         
     }else{
-        $profile_id= 'SFALMA';
+        header("Location: index.php");
+        exit();
     }
 ?>
 
@@ -72,7 +74,6 @@
                                   </form>
                                  </div>
                               </div>
-                              <?php echo $error?>
                       </div>
             </div>
             <?php }else{ ?>
