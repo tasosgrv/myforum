@@ -57,28 +57,71 @@
     <!-- MAIN PAGE -->
     
         <div id=main>
-            <?php if(isset($_SESSION['login_user'])){  //an yparxei connected user KAI einai katoxos tou profile?>
-            <div class="panel panel-primary">
-                    <div class="panel-heading">Προφίλ Χρήστη</div>
-                      <div class="panel-body">
-                              <div class="row"> <!-- SHOW PICTURE -->
-                                  <div class="col-xs-4 col-md-2" style="">
+            <?php if(isset($_SESSION['login_user'])){  //an yparxei connected user
+                if($_SESSION['login_user']==$users['username']){ //an to profile tou xristi einai diko tou ?>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">Προφίλ Χρήστη</div>
+                            <div class="panel-body">
+                                <div class="row"> <!-- SHOW PICTURE -->
+                                    <div class="col-xs-4 col-md-2" style="">
+                                        <?php if(empty($users['avatar'])){ //an den yparxei avatar?>
+                                            <img src="img/no_image.jpeg" alt="Profile Picture" class="img-thumbnail"><p></p>
+                                        <?php }else{ ?>
+                                            <img src="<?php echo $users['avater']?>" alt="Profile Picture" class="img-thumbnail"><p></p>
+                                        <?php } ?>
+                                        <label>Rank: <?php check_user_level($_SESSION['security_level'])?></label><br>
+                                        <label>Μέλος από:</label><br>
+                                        <?php echo $users['registration_date']?><p></p>
+                                        <label>Κατάσταση Λογαριασμού:</label><br>
+                                        <?php check_active_code($users['active'])?><p></p>
+                                    </div> <!-- SHOW USER DETAILS -->
+                                    <div class="col-xs-14 col-sm-8 col-md-10" style="border-left:1px solid gainsboro">
+                                    <form class="form-horizontal" action="" method="post">
+                                        <label>Username:</label><br>
+                                        <input type="text" name="username" value="<?php echo $users['username']?>" maxlength="20"><p></p>
+                                        <label>Email:</label><br>
+                                        <input type="text" name="email" value="<?php echo $users['email']?>" maxlength="100"><p></p>
+                                        <label for="exampleInputFile">File input</label>
+                                        <input type="file" id="exampleInputFile">
+                                        <p class="help-block">Example block-level help text here.</p>
+                                        <button type="submit" class="btn btn-primary">Ενημέρωση Προφίλ</button>
+                                    </form>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                <?php }else{ //an dn einai diko tou ?>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">Προφίλ Χρήστη</div>
+                            <div class="panel-body">
+                                <div class="row"> <!-- SHOW PICTURE -->
+                                    <div class="col-xs-4 col-md-2" style="">
+                                        <?php if(empty($users['avatar'])){ //an den yparxei avatar?>
                                             <img src="img/no_image.jpeg" alt="Profile Picture" class="img-thumbnail">
-                                  </div> <!-- SHOW USER DETAILS -->
-                                  <div class="col-xs-14 col-sm-8 col-md-10" style="border-left:1px solid gainsboro">
-                                  <form class="form-horizontal" action="" method="post">
-                                      <label>Username:</label><br>
-                                      <input type="text" name="username" value="<?php echo $users['username']?>" maxlength="20" disabled="true"><br>
-                                      <label>Email:</label><br>
-                                      <input type="text" name="email" value="<?php echo $users['email']?>" maxlength="100" disabled="true">
-                                  </form>
-                                 </div>
-                              </div>
-                      </div>
-            </div>
-            <?php }else{ ?>
+                                        <?php }else{ ?>
+                                            <img src="<?php echo $users['avater']?>" alt="Profile Picture" class="img-thumbnail">
+                                        <?php } ?>
+                                        <label>Rank: <?php check_user_level($_SESSION['security_level'])?></label><br>
+                                    </div> <!-- SHOW USER DETAILS -->
+                                    <div class="col-xs-14 col-sm-8 col-md-10" style="border-left:1px solid gainsboro">
+                                    <form class="form-horizontal">
+                                        <label>Όνομα χρήστη:</label><br>
+                                        <input type="text" name="username" value="<?php echo $users['username']?>" maxlength="20" disabled="true"><p></p>
+                                        <label>Email:</label><br>
+                                        <input type="text" name="email" value="<?php echo $users['email']?>" maxlength="100" disabled="true"><p></p>
+                                        <label>Μέλος από:</label><br>
+                                        <?php echo $users['registration_date']?><p></p>
+                                        <label>Κατάσταση Λογαριασμού:</label><br>
+                                        <?php check_active_code($users['active'])?><p></p>
+                                    </form>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                <?php } ?>
 
-            <p class='alert alert-danger' id='error'>Για να μπορέσεις να δεις τα προφίλ των χρηστών πρέπει να είσαι <b><a href="navbar.php">συνδεδεμένος</a></b><br>Αν δεν έχεις λογαριασμό, κάνε <b><a href="navbar.php">εγγραφή</a></b></p>
+            <?php }else{ //an den yparxei conneted xrisths ?>
+                <p class='alert alert-danger' id='error'>Για να μπορέσεις να δεις τα προφίλ των χρηστών πρέπει να είσαι <b><a href="navbar.php">συνδεδεμένος</a></b><br>Αν δεν έχεις λογαριασμό, κάνε <b><a href="navbar.php">εγγραφή</a></b></p>
             <?php } ?>
         </div>
     

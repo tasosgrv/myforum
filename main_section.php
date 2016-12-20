@@ -10,7 +10,7 @@
     <div id="container-fluid">
         <section id="main">
             <div class="panel panel-primary">
-                <div class="panel-heading"> Θέματα</div>
+                <div class="panel-heading"> Θέματα &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="form_post.php"><button type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Νέο Θέμα</button></a></div>
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <tr>

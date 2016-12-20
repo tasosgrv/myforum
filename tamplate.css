@@ -1,20 +1,25 @@
 
 			article{
 				margin-top: 45px;
-				padding: 50px 10px 10px 10px;	
+				padding: 80px 10px 10px 10px;
 				background-color: gainsboro;
                 display: none;
 				z-index: 1;
 			}
             
-            
+            #welcome{
+                margin-top: 40px;
+                padding: 30px 10px 30px 10px;
+            }
+
+
             #main{
-                margin-top: 50px;
+                margin-top: 1px;
                 padding: 10px 10px 10px 10px;    
             }
             
             #error{
-                margin-top: 10px;
+                margin-top: 30px;
             }
 
 			#footer{
