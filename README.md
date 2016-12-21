@@ -13,3 +13,11 @@
 - profile.php added some user information (future edit avatar feature)
 - main_section.php added button for New Subject (No active)
 - login.php prevent deactivated accounts to login
+
+21 Dec 2016:
+- profile.php completed (change avatar & user data)
+- change_data.php new file for changing users data from profile.php
+- utils.php added get_user_id funtion for detection user_id from GET values
+- Changed how $_SESSION variables set and unset (login.php, register.php, logout.php)
+- Changed $_SESSION['login_user'] to $_SESSION['username']
+- .gitignore modified

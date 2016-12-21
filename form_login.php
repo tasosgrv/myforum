@@ -17,7 +17,7 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    
+    `
      <link type="text/css" rel="stylesheet" href="tamplate.css"/>
 
         
@@ -28,7 +28,7 @@
                 <article id="login_box">
                     <center>
                     <?php    
-                    if(isset($_SESSION['login_user'])){
+                    if(isset($_SESSION['username'])){
                         echo 'Δεν μπορείτε να χρησιμοποιησετε αυτή τη σελιδα';
                     }else{ ?>    
                     Εισάγετε τα στοιχεία σας για να συνδεθείτε

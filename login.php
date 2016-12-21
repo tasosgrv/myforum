@@ -5,7 +5,7 @@
 
     if(isset($_POST['submit_login'])){
         if(empty($_POST['username']) || empty($_POST['password'])){
-             $error="<p class='alert alert-danger' id='error'>Πρέπει να συμπληρώσεις και τα δυο πεδία</p>";
+             $error="<p class='alert alert-danger' id='error'><b>Πρέπει να συμπληρώσεις και τα δυο πεδία</b></p>";
         }else{
         
             //συνδεση με τη mysql
@@ -24,15 +24,15 @@
                 
             if(@mysqli_num_rows($result)==1){ //Αν ο αριθμος των στηλών που βρέθηκάν ειναι ένας
                 if($users['active']==0){
-                    $error="<p class='alert alert-danger' id='error'>O λογαριασμός σας είναι ανενεργός</p>";
+                    $error="<p class='alert alert-danger' id='error'><b>O λογαριασμός σας είναι ανενεργός</b></p>";
                 }else{
-                    $_SESSION['login_user']=$username; //θετουμε το username στη session
-                    $_SESSION['security_level']=$users['security_level'];
-                    $_SESSION['user_id']=$users['user_id'];
+                    foreach($users as $key=>$value){
+                        $_SESSION[$key]=$value;
+                    }
                     header("Location: /forum/index.php"); //Ανακατευθυνση στην αρχικη
                 }
             }else{
-                $error="<p class='alert alert-danger' id='error'>To username η το password είναι λάθος</p>"; //αλλίως εμφανισε λαθος
+                $error="<p class='alert alert-danger' id='error'><b>To username η το password είναι λάθος</b></p>"; //αλλίως εμφανισε λαθος
             }
             mysqli_close($connect); //τερματισμος mysql syndeshs 
         }

@@ -27,7 +27,7 @@
 				<article id="register_box">
                     <center>
                     <?php    
-                    if(isset($_SESSION['login_user'])){
+                    if(isset($_SESSION['username'])){
                         echo 'Δεν μπορείτε να χρησιμοποιησετε αυτή τη σελιδα';
                     }else{ ?>    
                     Εισάγετε τα στοιχεία σας για να κανετε εγγραφη <b>(με * τα απαραιτητα πεδία)</b>

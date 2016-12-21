@@ -17,6 +17,28 @@
         if($active_code==0){echo "<font color='red'>Ανενεργός</font>"; }else{echo "<font color='green'>Ενεργοποιημένος</font>"; }
     }
 
+    function get_user_id($user_id){
+        if(isset($user_id) && is_numeric($user_id) && empty($user_id)===false){
+            $connect = db_connect();
+
+            $profile_id=$user_id;
+
+            $question="SELECT * FROM users WHERE user_id = '$profile_id'";
+            $result = mysqli_query($connect, $question) or die('Error to query' .mysqli_connect_error());
+            if(@mysqli_num_rows($result)==0){
+                header("Location: index.php");
+                exit();
+            }else{
+                return $users = mysqli_fetch_array($result);
+            }
+
+
+        }else{
+            header("Location: index.php");
+            exit();
+        }
+    }
+
     function email($to, $subject, $body){
         mail($to, $subject, $body, 'From: tasos_gr93@hotmail.com');
     }

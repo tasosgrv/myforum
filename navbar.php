@@ -17,10 +17,10 @@
                <a class="navbar-brand" href="index.php">MyForum</a>
             </div>
                     <?php
-                        if(isset($_SESSION['login_user'])){ ?>
+                        if(isset($_SESSION['username'])){ ?>
 
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="profile.php?id=<?php echo $_SESSION['user_id'] ?>"><span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION['login_user'] ?></a></li>
+                            <li><a href="profile.php?id=<?php echo $_SESSION['user_id'] ?>"><span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION['username'] ?></a></li>
                             <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Αποσύνδεση</a></li>&nbsp;
                         </ul>
 
@@ -35,7 +35,7 @@
     
     <div id="container-fluid">		
                 <?php
-                if(isset($_SESSION['login_user'])){
+                if(isset($_SESSION['username'])){
                     echo 'Δεν μπορείτε να χρησιμοποιησετε αυτή τη σελιδα';
                 }else{
                     include("form_login.php");
@@ -45,8 +45,8 @@
 
         <div id="welcome">
                 <?php
-                if(isset($_SESSION['login_user'])){ ?>
-                        <p class="alert alert-info" id="welcome">Καλως ηλθατε στο My Forum, <b><u><a class="alert-link" href="profile.php?id=<?php echo $_SESSION['user_id']?>"><span class="glyphicon glyphicon-user"></span><?php echo $_SESSION['login_user'] ?></a></u></b> συνδεθήκατε σαν
+                if(isset($_SESSION['username'])){ ?>
+                        <p class="alert alert-info" id="welcome">Καλως ηλθατε στο My Forum, <b><u><a class="alert-link" href="profile.php?id=<?php echo $_SESSION['user_id']?>"><span class="glyphicon glyphicon-user"></span><?php echo $_SESSION['username'] ?></a></u></b> συνδεθήκατε σαν
                         <?php check_user_level($_SESSION['security_level'])?></p>
                 <?php }else{ ?>
                     <p class="alert alert-info" id="welcome">Καλως ηλθατε στο My Forum, <br>Για να μπορείτε να γραψετε στο forum πρέπει να κάνετε <b>Σύνδεση</b> η <b>Εγγραφή</b> παντωντας τα κουμπιά πανω δεξιά</p>

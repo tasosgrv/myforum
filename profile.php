@@ -4,23 +4,11 @@
     session_start();
     require_once('utils.php');
     $error='';
-    if(isset($_GET['id']) && is_numeric($_GET['id']) && empty($_GET['id'])===false){
-        $connect = db_connect();
+    $success ='';
+    $users = get_user_id($_GET['id']);
 
-        $profile_id=$_GET['id'];
-        
-        $question="SELECT * FROM users WHERE user_id = '$profile_id'";
-        $result = mysqli_query($connect, $question) or die('Error to query' .mysqli_connect_error());
-        $users = mysqli_fetch_array($result);
-        if(@mysqli_num_rows($result)==0){
-            header("Location: index.php");
-            exit();
-        }
-        
-    }else{
-        header("Location: index.php");
-        exit();
-    }
+    include('change_data.php');
+
 ?>
 
 
@@ -57,18 +45,14 @@
     <!-- MAIN PAGE -->
     
         <div id=main>
-            <?php if(isset($_SESSION['login_user'])){  //an yparxei connected user
-                if($_SESSION['login_user']==$users['username']){ //an to profile tou xristi einai diko tou ?>
+            <?php if(isset($_SESSION['username'])){  //an yparxei connected user
+                if($_SESSION['user_id']==$users['user_id']){ //an to profile tou xristi einai diko tou ?>
                     <div class="panel panel-primary">
                         <div class="panel-heading">Προφίλ Χρήστη</div>
                             <div class="panel-body">
                                 <div class="row"> <!-- SHOW PICTURE -->
                                     <div class="col-xs-4 col-md-2" style="">
-                                        <?php if(empty($users['avatar'])){ //an den yparxei avatar?>
-                                            <img src="img/no_image.jpeg" alt="Profile Picture" class="img-thumbnail"><p></p>
-                                        <?php }else{ ?>
-                                            <img src="<?php echo $users['avater']?>" alt="Profile Picture" class="img-thumbnail"><p></p>
-                                        <?php } ?>
+                                        <img src="<?php echo $users['avatar']?>" alt="Profile Picture" class="img-thumbnail"><p></p>
                                         <label>Rank: <?php check_user_level($_SESSION['security_level'])?></label><br>
                                         <label>Μέλος από:</label><br>
                                         <?php echo $users['registration_date']?><p></p>
@@ -76,16 +60,19 @@
                                         <?php check_active_code($users['active'])?><p></p>
                                     </div> <!-- SHOW USER DETAILS -->
                                     <div class="col-xs-14 col-sm-8 col-md-10" style="border-left:1px solid gainsboro">
-                                    <form class="form-horizontal" action="" method="post">
-                                        <label>Username:</label><br>
+                                    <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+                                        <label>(*)Username:</label><br>
                                         <input type="text" name="username" value="<?php echo $users['username']?>" maxlength="20"><p></p>
-                                        <label>Email:</label><br>
+                                        <label>(*)Email:</label><br>
                                         <input type="text" name="email" value="<?php echo $users['email']?>" maxlength="100"><p></p>
-                                        <label for="exampleInputFile">File input</label>
-                                        <input type="file" id="exampleInputFile">
-                                        <p class="help-block">Example block-level help text here.</p>
-                                        <button type="submit" class="btn btn-primary">Ενημέρωση Προφίλ</button>
+                                        <label>File input:</label>
+                                        <input type="file" name="avatar"><p></p>
+                                        <label>(*)Εισάγετε τον κωδικό σας για να αλλάξετε τα στοιχεία σας</label><br>
+                                        <input type="password" name="password" maxlength="32"><p></p>
+                                        <button type="submit" name="submit" class="btn btn-primary">Ενημέρωση Προφίλ</button>
                                     </form>
+                                        <?php echo $success ?>
+                                        <?php echo $error ?>
                                     </div>
                                 </div>
                             </div>
@@ -96,12 +83,8 @@
                             <div class="panel-body">
                                 <div class="row"> <!-- SHOW PICTURE -->
                                     <div class="col-xs-4 col-md-2" style="">
-                                        <?php if(empty($users['avatar'])){ //an den yparxei avatar?>
-                                            <img src="img/no_image.jpeg" alt="Profile Picture" class="img-thumbnail">
-                                        <?php }else{ ?>
-                                            <img src="<?php echo $users['avater']?>" alt="Profile Picture" class="img-thumbnail">
-                                        <?php } ?>
-                                        <label>Rank: <?php check_user_level($_SESSION['security_level'])?></label><br>
+                                        <img src="<?php echo $users['avatar']?>" alt="Profile Picture" class="img-thumbnail">
+                                        <label>Rank: <?php check_user_level($users['security_level'])?></label><br>
                                     </div> <!-- SHOW USER DETAILS -->
                                     <div class="col-xs-14 col-sm-8 col-md-10" style="border-left:1px solid gainsboro">
                                     <form class="form-horizontal">
