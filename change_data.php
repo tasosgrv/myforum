@@ -16,7 +16,7 @@
                 }
 
                 if (move_uploaded_file($_FILES["avatar"]["tmp_name"], $target)) {
-                    $error = "<p class='alert alert-danger' id='success'><b>Η εικόνα ανέβηκε επιτυχώς</b></p>";
+                    $error = "<p class='alert alert-success' id='error'><b>Η εικόνα ανέβηκε επιτυχώς</b></p>";
                 } else {
                     $error = "<p class='alert alert-danger' id='error'><b>ΣΦΑΛΜΑ, η εικόνα δεν ανέβηκε</b></p>";
                 }
