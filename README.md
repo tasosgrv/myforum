@@ -20,4 +20,5 @@
 - utils.php added get_user_id funtion for detection user_id from GET values
 - Changed how $_SESSION variables set and unset (login.php, register.php, logout.php)
 - Changed $_SESSION['login_user'] to $_SESSION['username']
+- navbar.php added profile icon on navbar aside username
 - .gitignore modified
