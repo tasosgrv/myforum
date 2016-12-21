@@ -51,7 +51,7 @@
                         <div class="panel-heading">Προφίλ Χρήστη</div>
                             <div class="panel-body">
                                 <div class="row"> <!-- SHOW PICTURE -->
-                                    <div class="col-xs-4 col-md-2" style="">
+                                    <div class="col-xs-6 col-md-2" style="">
                                         <img src="<?php echo $users['avatar']?>" alt="Profile Picture" class="img-thumbnail"><p></p>
                                         <label>Rank: <?php check_user_level($_SESSION['security_level'])?></label><br>
                                         <label>Μέλος από:</label><br>
@@ -59,14 +59,14 @@
                                         <label>Κατάσταση Λογαριασμού:</label><br>
                                         <?php check_active_code($users['active'])?><p></p>
                                     </div> <!-- SHOW USER DETAILS -->
-                                    <div class="col-xs-14 col-sm-8 col-md-10" style="border-left:1px solid gainsboro">
+                                    <div class="col-xs-12 col-sm-8 col-md-10" style="border-left:1px solid gainsboro">
                                     <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
                                         <label>(*)Username:</label><br>
                                         <input type="text" name="username" value="<?php echo $users['username']?>" maxlength="20"><p></p>
                                         <label>(*)Email:</label><br>
                                         <input type="text" name="email" value="<?php echo $users['email']?>" maxlength="100"><p></p>
-                                        <label>File input:</label>
-                                        <input type="file" name="avatar"><p></p>
+                                        <label>Αλλαξε άβαταρ:</label>
+                                        <input type="file" name="avatar"><br>
                                         <label>(*)Εισάγετε τον κωδικό σας για να αλλάξετε τα στοιχεία σας</label><br>
                                         <input type="password" name="password" maxlength="32"><p></p>
                                         <button type="submit" name="submit" class="btn btn-primary">Ενημέρωση Προφίλ</button>
@@ -82,11 +82,11 @@
                         <div class="panel-heading">Προφίλ Χρήστη</div>
                             <div class="panel-body">
                                 <div class="row"> <!-- SHOW PICTURE -->
-                                    <div class="col-xs-4 col-md-2" style="">
+                                    <div class="col-xs-5 col-md-2" style="">
                                         <img src="<?php echo $users['avatar']?>" alt="Profile Picture" class="img-thumbnail">
                                         <label>Rank: <?php check_user_level($users['security_level'])?></label><br>
                                     </div> <!-- SHOW USER DETAILS -->
-                                    <div class="col-xs-14 col-sm-8 col-md-10" style="border-left:1px solid gainsboro">
+                                    <div class="col-xs-13 col-sm-8 col-md-10" style="border-left:1px solid gainsboro">
                                     <form class="form-horizontal">
                                         <label>Όνομα χρήστη:</label><br>
                                         <input type="text" name="username" value="<?php echo $users['username']?>" maxlength="20" disabled="true"><p></p>
