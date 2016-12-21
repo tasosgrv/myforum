@@ -1,7 +1,7 @@
 
 			article{
-				margin-top: 45px;
-				padding: 80px 10px 10px 10px;
+				margin-top: 32px;
+				padding: 70px 10px 10px 10px;
 				background-color: gainsboro;
                 display: none;
 				z-index: 1;
@@ -19,7 +19,7 @@
             }
             
             #error{
-                margin-top: 30px;
+                margin-top: 40px;
             }
 
 			#footer{

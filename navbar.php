@@ -35,9 +35,7 @@
     
     <div id="container-fluid">		
                 <?php
-                if(isset($_SESSION['username'])){
-                    echo 'Δεν μπορείτε να χρησιμοποιησετε αυτή τη σελιδα';
-                }else{
+                if(!isset($_SESSION['username'])){
                     include("form_login.php");
                     include("form_register.php");
                 }
