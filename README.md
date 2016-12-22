@@ -22,3 +22,7 @@
 - Changed $_SESSION['login_user'] to $_SESSION['username']
 - navbar.php added profile icon on navbar aside username
 - .gitignore modified
+
+22 Dec 2016:
+- fixed some margins
+- fixed col-xs classes

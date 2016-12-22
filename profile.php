@@ -82,11 +82,11 @@
                         <div class="panel-heading">Προφίλ Χρήστη</div>
                             <div class="panel-body">
                                 <div class="row"> <!-- SHOW PICTURE -->
-                                    <div class="col-xs-5 col-md-2" style="">
+                                    <div class="col-xs-6 col-md-2" style="">
                                         <img src="<?php echo $users['avatar']?>" alt="Profile Picture" class="img-thumbnail">
                                         <label>Rank: <?php check_user_level($users['security_level'])?></label><br>
                                     </div> <!-- SHOW USER DETAILS -->
-                                    <div class="col-xs-13 col-sm-8 col-md-10" style="border-left:1px solid gainsboro">
+                                    <div class="col-xs-12 col-sm-8 col-md-10" style="border-left:1px solid gainsboro">
                                     <form class="form-horizontal">
                                         <label>Όνομα χρήστη:</label><br>
                                         <input type="text" name="username" value="<?php echo $users['username']?>" maxlength="20" disabled="true"><p></p>
