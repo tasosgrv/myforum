@@ -20,6 +20,7 @@
                         if(isset($_SESSION['username'])){ ?>
 
                         <ul class="nav navbar-nav navbar-right">
+                            <li><a href="members.php"><span class=" glyphicon glyphicon-user"></span>Λίστα Μελών</a></li>
                             <li><a href="profile.php?id=<?php echo $_SESSION['user_id'] ?>"><img src="<?php echo $_SESSION['avatar']?>" height="24" width="24"> <?php echo $_SESSION['username'] ?></a></li>
                             <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Αποσύνδεση</a></li>&nbsp;
                         </ul>

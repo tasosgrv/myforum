@@ -26,3 +26,6 @@
 22 Dec 2016:
 - fixed some margins
 - fixed col-xs classes
+
+23 Dec 2016
+- added members list full feature members.php
