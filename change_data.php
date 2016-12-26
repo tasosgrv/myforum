@@ -12,7 +12,7 @@
                         $error= "<p class='alert alert-danger' id='error'><b>Συγνώμη, η εικόνα είναι αρετά μεγάλη πρέπει να είναι το πολύ 2 MB </b></p>";
                     }
                 } else {
-                    $error = "<p class='alert alert-danger' id='error'><b>Το αρχείο που επιλέξατε δεν είναι εικόνα</b></p>";
+                        $error = "<p class='alert alert-danger' id='error'><b>Το αρχείο που επιλέξατε δεν είναι εικόνα</b></p>";
                 }
 
                 if (move_uploaded_file($_FILES["avatar"]["tmp_name"], $target)) {
@@ -20,7 +20,7 @@
                 } else {
                     $error = "<p class='alert alert-danger' id='error'><b>ΣΦΑΛΜΑ, η εικόνα δεν ανέβηκε</b></p>";
                 }
-            }
+            } // TELOS ELENXWN GIA EIKONA
 
             if(preg_match("/\\s/", $_POST['username']) == true){
                $error="<p class='alert alert-danger' id='error'><b>Το username σας δεν πρέπει να περιέχει κενά </b></p>";
@@ -42,7 +42,7 @@
                if(strlen($_POST['password']) < 6){
                    $error="<p class='alert alert-danger' id='error'><b>Ο κωδικός σας πρέπει να έχει τουλάχιστον 6 χαρακτήρες</b></p>";
                }else{
-                                    //check email dublicate
+                                    //check USERNAME AND email dublicate
                    $question="SELECT * FROM users WHERE email LIKE '{$email}' OR username LIKE '{$usr}'";
                    //ektelesh erwthmatos
                    $result = mysqli_query($connect, $question) or die(mysql_error());
@@ -58,10 +58,11 @@
                         mysqli_query($connect, $reg) or die(mysql_error());
                         mysqli_close($connect);
 
-
+                        //set changed values to session
                        foreach($users as $key=>$value){
                            unset($_SESSION[$key]);
-                           $_SESSION[$key]=$value;
+                            if($key!='password')
+                                $_SESSION[$key]=$value;
                        }
 
                         $success ="<p class='alert alert-success' id='error'><b>Η αλλαγή των στοιχείων έγινε με επιτυχία<br>Kάντε <a href='logout.php'>αποσύνδεση</a> και ύστερα συνδεθείτε ξανά με τα νέα σας στοιχεία</b></p>";

@@ -23,11 +23,13 @@
             $users = mysqli_fetch_array($result);
                 
             if(@mysqli_num_rows($result)==1){ //Αν ο αριθμος των στηλών που βρέθηκάν ειναι ένας
-                if($users['active']==0){
+                if($users['active']==0){ // an o users einai active
                     $error="<p class='alert alert-danger' id='error'><b>O λογαριασμός σας είναι ανενεργός</b></p>";
                 }else{
+                    //set changed values to session
                     foreach($users as $key=>$value){
-                        $_SESSION[$key]=$value;
+                        if($key!='password')
+                            $_SESSION[$key]=$value;
                     }
                     header("Location: /forum/index.php"); //Ανακατευθυνση στην αρχικη
                 }
