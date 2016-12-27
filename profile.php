@@ -16,7 +16,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Forum</title>
+    <title>My Forum - <?php echo $users['username']?> profile</title>
     
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -52,7 +52,7 @@
                             <div class="panel-body">
                                 <div class="row"> <!-- SHOW PICTURE -->
                                     <div class="col-xs-6 col-md-2" style="">
-                                        <img src="<?php echo $users['avatar']?>" alt="Profile Picture" class="img-thumbnail"><p></p>
+                                        <img src="<?php echo $users['avatar']?>" alt="Profile Picture" class="img-thumbnail img-responsive"><p></p>
                                         <label>Rank: <?php check_user_level($_SESSION['security_level'])?></label><br>
                                         <label>Μέλος από:</label><br>
                                         <?php echo $users['registration_date']?><p></p>
@@ -83,7 +83,7 @@
                             <div class="panel-body">
                                 <div class="row"> <!-- SHOW PICTURE -->
                                     <div class="col-xs-6 col-md-2" style="">
-                                        <img src="<?php echo $users['avatar']?>" alt="Profile Picture" class="img-thumbnail">
+                                        <img src="<?php echo $users['avatar']?>" alt="Profile Picture" class=" img-thumbnail img-responsive">
                                         <label>Rank: <?php check_user_level($users['security_level'])?></label><br>
                                     </div> <!-- SHOW USER DETAILS -->
                                     <div class="col-xs-12 col-sm-8 col-md-10" style="border-left:1px solid gainsboro">

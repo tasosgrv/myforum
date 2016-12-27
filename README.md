@@ -29,3 +29,10 @@
 
 23 Dec 2016
 - added members list full feature members.php
+
+27 Dec 2016:
+- footer.php completed
+- main_section.php completed for normal users
+- subjects.php almost completed for normal users *(print the subject title)
+- added class img-responsive
+- utils.php added some utility functions

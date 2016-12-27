@@ -10,7 +10,15 @@
         <div class="container-fluid">
         <div class="panel panel-info">
             <div class="panel-heading">Στατιστικά</div>
-            <p>Εδω θα μπαινουν τα στατοστικα του φορουμ</p>
+            <p id="main">
+                <?php
+                    echo 'Εγγεγραμένοι χρήστες: '.sum_users().'<br>';
+                    echo 'Συνολο Θεμάτων: '.sum_subjects().'<br>';
+                    echo 'Συνολο Μηνυμάτων: '.sum_posts().'<br>';
+                    $member = new_memeber();
+                    echo "Νεότερο Μέλος μας: <a href='profile.php?id=".$member['user_id']."'>".$member['username']."</a><br>";
+                ?>
+            </p>
         </div>
     </div>
     
