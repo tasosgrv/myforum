@@ -4,7 +4,7 @@
     require_once('utils.php');
     $connect = db_connect();
 
-    $question="SELECT subjects.*, users.username, users.avatar FROM subjects,users WHERE subjects.user_id = users.user_id";
+    $question="SELECT subjects.*, users.username, users.avatar FROM subjects,users WHERE subjects.user_id = users.user_id ORDER BY last_update DESC";
     //ektelesh erwthmatos
     $result = mysqli_query($connect, $question) or die(mysql_error());
 

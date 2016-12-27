@@ -6,7 +6,7 @@
     if(isset($_GET['id']) && is_numeric($_GET['id']) && empty($_GET['id'])===false){
         $connect = db_connect();
         $subject = $_GET['id'];
-        $question = "SELECT users.*, subjects.title, posts.* FROM users, subjects, posts WHERE posts.subject_id = $subject AND posts.user_id = users.user_id";
+        $question = "SELECT users.*, posts.* FROM users, posts WHERE posts.subject_id = $subject AND posts.user_id = users.user_id";
         $result = mysqli_query($connect, $question) or die('Error to query' .mysqli_connect_error());
         if(@mysqli_num_rows($result)==0){
             header("Location: index.php");
