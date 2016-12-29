@@ -33,7 +33,7 @@
                                     <td>
                                         <?php echo $subjects['subject_id'] ?>
                                     </td>
-                                    <td>
+                                    <td> <!-- TITLOS -->
                                         <a href="subject.php?id=<?php echo $subjects['subject_id']?>"><b><?php echo $subjects['title']?></b></a>
                                     </td>
                                     <td>
@@ -41,17 +41,17 @@
                                             echo count_posts_each_subject($subjects['subject_id']);
                                         ?>
                                     </td>
-                                    <td>
+                                    <td>    <!-- CREATED -->
                                         <a href="profile.php?id=<?php echo $subjects['user_id'] ?>"><img src="<?php echo $subjects['avatar']?>" height="24" width="24"> <?php echo $subjects['username'] ?></a>
                                     </td>
-                                    <td>
+                                    <td> <!-- LAST USER POSTED -->
                                         <?php
                                             $last_user = last_user_posted($subjects['subject_id']);
                                         ?>
                                         <a href="profile.php?id=<?php echo $last_user['user_id'] ?>"><img src="<?php echo $last_user['avatar']?>" height="24" width="24"> <?php echo $last_user['username'] ?></a>
 
                                     </td>
-                                    <td>
+                                    <td> <!-- LAST update -->
                                         <?php echo $subjects['last_update']?>
                                     </td>
                                 </tr>
