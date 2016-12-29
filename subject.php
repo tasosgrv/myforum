@@ -12,6 +12,9 @@
             header("Location: index.php");
             exit();
         }else{
+            $question = "SELECT title FROM subjects WHERE subject_id = $subject";
+            $result1 = mysqli_query($connect, $question) or die('Error to query' .mysqli_connect_error());
+            $subject_title = mysqli_fetch_array($result1);
 
         }
     }else{
@@ -24,7 +27,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Forum - Θέματα -</title>
+    <title>My Forum - Θέματα - <?php echo $subject_title['title'] ?></title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -48,7 +51,7 @@
     ?>
     <div id=main>
         <div class="panel panel-primary">
-            <div class="panel-heading">Θέμα:</div>
+            <div class="panel-heading">Θέμα: <?php echo $subject_title['title'] ?></div>
             <?php while($posts_data = mysqli_fetch_array($result)){?>
             <div class="panel panel-default">
                 <div class="panel-heading">Mήνυμα: #<?php echo $posts_data['post_id']?></div>
