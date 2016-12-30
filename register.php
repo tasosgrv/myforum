@@ -55,7 +55,7 @@
            }//pass repeat check
 
 
-
+            mysqli_close($connect); //τερματισμος mysql syndeshs
 
        }//empty
     }//submit

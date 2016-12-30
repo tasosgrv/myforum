@@ -76,6 +76,7 @@
                             $error = "<p class='alert alert-danger' id='error'><b>Το email που επιλέξατε χρησιμοποιείται ήδη</b></p>";
                         }
                    }
+                       mysqli_close($connect); //τερματισμος mysql syndeshs
                }
 
             }

@@ -6,7 +6,7 @@
     if(isset($_GET['id']) && is_numeric($_GET['id']) && empty($_GET['id'])===false){
         $connect = db_connect();
         $subject = $_GET['id'];
-        $question = "SELECT users.*, posts.* FROM users, posts WHERE posts.subject_id = $subject AND posts.user_id = users.user_id";
+        $question = "SELECT users.*, posts.* FROM users, posts WHERE posts.subject_id = $subject AND posts.user_id = users.user_id ORDER BY date ASC";
         $result = mysqli_query($connect, $question) or die('Error to query' .mysqli_connect_error());
         if(@mysqli_num_rows($result)==0){
             header("Location: index.php");
@@ -15,7 +15,6 @@
             $question = "SELECT title FROM subjects WHERE subject_id = $subject";
             $result1 = mysqli_query($connect, $question) or die('Error to query' .mysqli_connect_error());
             $subject_title = mysqli_fetch_array($result1);
-
         }
     }else{
         header("Location: index.php");
@@ -51,7 +50,7 @@
     ?>
     <div id=main>
         <div class="panel panel-primary">
-            <div class="panel-heading">Θέμα: <?php echo $subject_title['title'] ?></div>
+            <div class="panel-heading">Θέμα: <?php echo $subject_title['title'] ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="form_post.php?id=<?php echo $subject?>"><button type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Νέο Μήνυμα</button></a></div>
             <?php while($posts_data = mysqli_fetch_array($result)){?>
             <div class="panel panel-default">
                 <div class="panel-heading">Mήνυμα: #<?php echo $posts_data['post_id']?></div>

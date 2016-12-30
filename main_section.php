@@ -26,7 +26,7 @@
                     <div class="table-responsive">
                         <table class="table table-hover">
                             <tr>
-                                <td>#</td><td>Τιτλος</td><td>Μηνύματα</td><td>Δημιουργήθηκε από</td><td>Τελευαίος Χρηστης</td><td>Τελευταία ανανέωση</td>
+                                <td>#</td><td>Τιτλος</td><td>Μηνύματα</td><td>Δημιουργήθηκε από</td><td>Τελευαίο Μήνυμα από</td><td>Τελευταία ανανέωση</td>
                             </tr>
                             <?php while($subjects = mysqli_fetch_array($result)){?>
                                 <tr>
