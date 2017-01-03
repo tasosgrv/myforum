@@ -12,18 +12,19 @@
         <div class="container-fluid">
            <div class="navbar-header">
                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainbar">
-                   <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-               </button>
+                    <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                </button>
                <a class="navbar-brand" href="index.php">MyForum</a>
             </div>
                     <?php
                         if(isset($_SESSION['username'])){ ?>
-
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="members.php"><span class=" glyphicon glyphicon-user"></span>Λίστα Μελών</a></li>
-                            <li><a href="profile.php?id=<?php echo $_SESSION['user_id'] ?>"><img src="<?php echo $_SESSION['avatar']?>" height="24" width="24"> <?php echo $_SESSION['username'] ?></a></li>
-                            <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Αποσύνδεση</a></li>&nbsp;
-                        </ul>
+                        <div class="nav navbar-nav navbar-right collapse navbar-collapse" id="mainbar">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="members.php"><span class=" glyphicon glyphicon-user"></span>Λίστα Μελών</a></li>
+                                <li><a href="profile.php?id=<?php echo $_SESSION['user_id'] ?>"><img src="<?php echo $_SESSION['avatar']?>" height="24" width="24"> <?php echo $_SESSION['username'] ?></a></li>
+                                <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Αποσύνδεση</a></li>&nbsp;
+                            </ul>
+                        </div>
 
                     <?php }else{ ?>
                         <div class="nav navbar-nav navbar-right collapse navbar-collapse" id="mainbar">
