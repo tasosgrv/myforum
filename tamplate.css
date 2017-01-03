@@ -22,14 +22,8 @@
                 margin-top: 40px;
             }
 
-			#footer{
-				padding: 10px 10px 10px 10px;	
+			#end{
+                background-color: #343030;
+				padding: 10px 10px 10px 10px;
 			}
-
-            #abot {
-                font-family: fantasy;
-                font-style: italic;
-                color: darkorange;
-            }
-
 
