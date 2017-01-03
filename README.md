@@ -36,3 +36,7 @@
 - subjects.php almost completed for normal users *(print the subject title)
 - added class img-responsive
 - utils.php added some utility functions
+
+30 Dec 2016
+- bug fixes
+- basic post.php (not working)
