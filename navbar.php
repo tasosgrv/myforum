@@ -5,6 +5,8 @@
 ?>
 <html lang="">
 <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>	<!-- import jquery lib -->
+    <script type="text/javascript" src="script.js"></script>
 </head>
 
 <body>

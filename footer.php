@@ -23,10 +23,26 @@
     </div>
     
     <div class="container-fluid" id="end">
-        <h1>Contact</h1>
-
+        <div class="row">
+          <div class="col-xs-6 col-sm-4">
+            <h1>Contact</h1>
+            <ul>
+                <li>facebook</li>
+                <li>twitter</li>
+                <li>github</li>
+            </ul>
+            </div>
+          <div class="col-xs-6 col-sm-4" style="border-left:1px solid gray">
+            <h1>About</h1>
+              <p>text text</p>
+            </div>
+          <!-- Optional: clear the XS cols if their content doesn't match in height -->
+          <div class="clearfix visible-xs-block"></div>
+          <div class="col-xs-6 col-sm-4" style="border-left:1px solid gray">
+              <h1><a href="#"><span class="glyphicon glyphicon-arrow-up"></span>Back to Top</a></h1>
+            </div>
+        </div>
     </div>
-
-
 </body>
 </html>
+

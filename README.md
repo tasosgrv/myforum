@@ -40,3 +40,8 @@
 30 Dec 2016
 - bug fixes
 - basic post.php (not working)
+
+3 Jan 2017
+- completed post.php
+- moved bootstrap javascript link in body
+- some changes to footer
