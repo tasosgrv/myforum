@@ -45,3 +45,8 @@
 - completed post.php
 - moved bootstrap javascript link in body
 - some changes to footer
+
+9 Jan 2017
+- added pin and lock features for subjects
+- added button at the bottom of subject.php
+- added background image
