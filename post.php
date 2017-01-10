@@ -13,6 +13,9 @@ if(isset($_POST['submit'])){
         }else{
             //mysql connect
             $connect = db_connect();
+            $searchTerms = array ( 'tasos', '/]' );
+            $replacements = array ( 'giorgos', '/>' );
+            str_replace($searchTerms, $searchTerms, $_POST['message']);
 
             //metafora se metavlites
             $message = mysqli_real_escape_string($connect, $_POST['message']);
