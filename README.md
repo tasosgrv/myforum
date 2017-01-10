@@ -32,7 +32,7 @@
 
 27 Dec 2016:
 - footer.php completed
-- main_section.php completed for normal users
+- main_section.php completed for normal users   
 - subjects.php almost completed for normal users *(print the subject title)
 - added class img-responsive
 - utils.php added some utility functions
@@ -51,3 +51,7 @@
 - added button at the bottom of subject.php
 - added background image
 - fixed word wrapping in subject.php
+
+10 Jan 2017
+- added favicon
+- added messages number for each user

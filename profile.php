@@ -54,6 +54,7 @@
                                         <?php echo $users['registration_date']?><p></p>
                                         <label>Κατάσταση Λογαριασμού:</label><br>
                                         <?php check_active_code($users['active'])?><p></p>
+                                        <label>Μηνύματα: <?php echo sum_posts_by_user($users['user_id'])?></label><br>
                                     </div> <!-- SHOW USER DETAILS -->
                                     <div class="col-xs-12 col-sm-8 col-md-10" style="border-left:1px solid gainsboro">
                                     <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
@@ -92,6 +93,7 @@
                                         <?php echo $users['registration_date']?><p></p>
                                         <label>Κατάσταση Λογαριασμού:</label><br>
                                         <?php check_active_code($users['active'])?><p></p>
+                                        <label>Μηνύματα: <?php echo sum_posts_by_user($users['user_id'])?></label><br><p></p>
                                     </form>
                                     </div>
                                 </div>

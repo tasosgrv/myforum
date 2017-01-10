@@ -47,6 +47,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/gif" href="favicon.gif"/>
     <title>My Forum - Members List</title>
 
     <!-- Latest compiled and minified CSS -->
@@ -75,7 +76,7 @@
                     <div class="table-responsive">
                         <table class="table table-hover">
                             <tr>
-                                <td>ID</td><td>Username</td><td>Email</td><td>Κατάσταση Λογαριασμού</td><td>Rank</td><td>Ημερομηνία εγγραφής</td><?php if($_SESSION['security_level']==1){ echo '<td>Επεξεργασία</td>';}?>
+                                <td>ID</td><td>Username</td><td>Email</td><td>Μηνύματα</td><td>Κατάσταση Λογαριασμού</td><td>Rank</td><td>Ημερομηνία εγγραφής</td><?php if($_SESSION['security_level']==1){ echo '<td>Επεξεργασία</td>';}?>
                             </tr>
                             <?php while($users = mysqli_fetch_array($result)){?>
                             <tr>
@@ -87,6 +88,9 @@
                                 </td>
                                 <td>
                                     <?php echo $users['email'] ?>
+                                </td>
+                                <td> <!--MHNYMATA-->
+                                    <?php echo sum_posts_by_user($users['user_id']) ?>
                                 </td>
                                 <td> <!--KATASTASH LOGARIASMOU-->
                                     <?php check_active_code($users['active'])?>

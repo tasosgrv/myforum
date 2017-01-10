@@ -69,6 +69,7 @@
                                     <a href="profile.php?id=<?php echo $posts_data['user_id'] ?>"><b><span class=" glyphicon glyphicon-user"></span><?php echo $posts_data['username'] ?></b></a>
                                     <img src="<?php echo $posts_data['avatar']?>" alt="Profile Picture" class="img-thumbnail img-responsive" width="200" height="200">
                                     <label>Rank: <?php check_user_level($posts_data['security_level'])?></label><br>
+                                    <label>Μηνύματα: <?php echo sum_posts_by_user($posts_data['user_id'])?></label><br>
                                 </p>
                             </div> <!-- SHOW MESSAGE -->
                             <div class="col-xs-12 col-sm-8 col-md-10" style="border-left:1px solid gainsboro; word-wrap: break-word;">

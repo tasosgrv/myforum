@@ -63,6 +63,10 @@
         $connect = db_connect();
         return mysqli_num_rows(mysqli_query($connect, "SELECT * FROM posts"));
     }
+    function sum_posts_by_user($user_id){
+        $connect = db_connect();
+        return mysqli_num_rows(mysqli_query($connect, "SELECT * FROM posts WHERE user_id=$user_id"));
+    }
     function new_memeber(){
         $connect = db_connect();
         return mysqli_fetch_array(mysqli_query($connect, "SELECT username, user_id FROM users ORDER BY registration_date DESC LIMIT 1"));
