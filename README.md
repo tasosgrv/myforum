@@ -50,3 +50,4 @@
 - added pin and lock features for subjects
 - added button at the bottom of subject.php
 - added background image
+- fixed word wrapping in subject.php

@@ -8,7 +8,7 @@
     //ektelesh erwthmatos
     $result = mysqli_query($connect, $question) or die(mysql_error());
 
-    if($_SESSION['security_level']==1){
+    if(isset($_SESSION['security_level']) && $_SESSION['security_level']==1){
         if(isset($_POST['pin'])){ //kai an exei patithei to pin
             $id = $_POST['subject_id'];
             $pinned = $_POST['pinned'];
@@ -53,7 +53,7 @@
                         <table class="table table-hover">
                             <tr>
                                 <td>#</td><td>Τιτλος</td><td>Μηνύματα</td><td>Δημιουργήθηκε από</td><td>Τελευαίο Μήνυμα από</td><td>Τελευταία ανανέωση</td>
-                                <?php if($_SESSION['security_level']==1){ echo '<td>Επεξεργασία</td>';}?>
+                                <?php if(isset($_SESSION['security_level']) && $_SESSION['security_level']==1){ echo '<td>Επεξεργασία</td>';}?>
                             </tr>
                             <?php while($subjects = mysqli_fetch_array($result)){?>
                                 <tr>
@@ -89,7 +89,7 @@
                                     </td>
                                     <td> <!-- ADMIN UTILS-->
                                         <?php
-                                            if($_SESSION['security_level']==1){ ?>
+                                            if(isset($_SESSION['security_level']) && $_SESSION['security_level']==1){ ?>
                                             <form id="pin" method="post" action="">
                                                 <input type="hidden" name="subject_id" value="<?php echo $subjects['subject_id']; ?>"/>
                                                 <input type="hidden" name="pinned" value="<?php echo $subjects['pinned']; ?>"/>

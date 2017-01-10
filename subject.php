@@ -57,6 +57,7 @@
                     <?php } ?>
                 </b>
             </div>
+            <div class="panel-body">
             <?php while($posts_data = mysqli_fetch_array($result)){?>
                 <div class="panel panel-default">
                     <div class="panel-heading">Mήνυμα: #<?php echo $posts_data['post_id']?></div>
@@ -69,7 +70,7 @@
                                     <label>Rank: <?php check_user_level($posts_data['security_level'])?></label><br>
                                 </p>
                             </div> <!-- SHOW MESSAGE -->
-                            <div class="col-xs-12 col-sm-8 col-md-10" style="border-left:1px solid gainsboro">
+                            <div class="col-xs-12 col-sm-8 col-md-10" style="border-left:1px solid gainsboro; word-wrap: break-word;">
                                 <p><?php echo $posts_data['message']?></p><hr>
                                 <p class="bg-info">Posted: <?php echo $posts_data['date']?></p>
                             </div>
@@ -86,6 +87,7 @@
                 <a href="form_post.php?id=<?php echo $subject?>"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Νέο Μήνυμα</button></a>
             </p>
             <?php } ?>
+            </div>
         </div>
     </div>
     <!-- FOOTER-->
