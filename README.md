@@ -58,4 +58,5 @@
 
 11 Jan 2017
 - added social media links
-- added links and img support on subjects.php
+- added links and img support on subjects.php'
+- added edit post feature

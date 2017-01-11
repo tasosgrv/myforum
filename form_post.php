@@ -8,12 +8,18 @@
         exit();
     }
 
-    if(isset($_GET['id']) && is_numeric($_GET['id']) && empty($_GET['id'])===false){
+    if(isset($_GET['id']) && is_numeric($_GET['id']) && empty($_GET['id'])===false){ //pare ton titlo tou thematos gia neo minima
         $connect = db_connect();
         $subject = $_GET['id'];
         $question = "SELECT title FROM subjects WHERE subject_id = $subject";
         $result1 = mysqli_query($connect, $question) or die('Error to query' .mysqli_connect_error());
         $subject_title = mysqli_fetch_array($result1);
+    }
+    if(isset($_GET['edit']) && is_numeric($_GET['edit']) && empty($_GET['edit'])===false){ // pare to keimeno p einai na ginei edit
+        $post_to_edit = $_GET['edit'];
+        $question = "SELECT message FROM posts WHERE post_id = $post_to_edit";
+        $result2 = mysqli_query($connect, $question) or die('Error to query 2' .mysqli_connect_error());
+        $MESSAGE = mysqli_fetch_array($result2);
     }
     include('post.php');
 
@@ -53,15 +59,19 @@
                 <div class="panel-body" style="background:gainsboro">
                    <form action="" method="post">
                        <label>Τίτλος: </label><br>
-                       <?php if(isset($subject_title['title'])){?>
+                       <?php if(isset($subject_title['title'])){?> <!--AN YPARXEI TITLOS-->
                             <input type="text" class="form-control" name="title" maxlength="200"  disabled="true" value="<?php echo $subject_title['title']?>" aria-describedby="sizing-addon2"><p></p>
                             <input type="hidden" name="subject_id" value="<?php echo $subject ?>"/>
-                       <?php }else{?>
+                       <?php }else{?> <!--AN DEN YPARXEI TITLOS-->
                             <input type="text" class="form-control" name="title" maxlength="200" aria-describedby="sizing-addon2"><p></p>
                        <?php }?>
                        <label>Μήνυμα: </label><br>
-                       <textarea name="message" class="form-control" cols=100 rows="10" maxlength="2000"></textarea><p></p>
-                       <i>Αν θελετε να προσθέσετε κάποια εικόνα πρέπει την ανεβάσετε σε κάποιo online site</i>
+                       <textarea name="message" class="form-control" cols=100 rows="10" maxlength="2000"><?php if(!empty($MESSAGE['message']))echo $MESSAGE['message']?></textarea>
+                       <?php if(isset($post_to_edit)){?> <!-- KRYFO PEDIO GIA TO EDIT-->
+                            <input type="hidden" name="edit_id" value="<?php echo $post_to_edit ?>"/>
+                       <?php } ?>
+                       <p></p>
+                       <b><i>Οριο κειμένου 2000 χαρακτήρες <br>Αν θελετε να προσθέσετε κάποια εικόνα πρέπει πρώτα την ανεβάσετε σε κάποιo online site</i></b>
                        <center>
                             <button type="submit" name="submit" class="btn btn-primary">Αποστολή</button>
                             <button type="reset" class="btn btn-default">Καθαρισμός</button><br><br>

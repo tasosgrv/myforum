@@ -7,24 +7,30 @@ $epityxia='';
 
 
 if(isset($_POST['submit'])){
-    if(!empty($_POST['subject_id'])){
+    if(!empty($_POST['subject_id'])){  // POST SE YPARXON THEMA
         if(empty($_POST['message'])){
             $error="<p class='alert alert-danger' id='error'><b>Παρακαλώ γράψτε ένα μήνυμα</b></p>";
         }else{
+
             //mysql connect
             $connect = db_connect();
-            $searchTerms = array ( 'tasos', '/]' );
-            $replacements = array ( 'giorgos', '/>' );
-            str_replace($searchTerms, $searchTerms, $_POST['message']);
 
             //metafora se metavlites
             $message = mysqli_real_escape_string($connect, $_POST['message']);
             $subject_id = $_POST['subject_id'];
 
+            if(isset($_POST['edit_id'])){
+                $pid = $_POST['edit_id'];
+                $insert0 = "UPDATE posts SET message='$message' WHERE post_id='$pid'";
+                $res = mysqli_query($connect, $insert0) or die('insert UPDATE'.mysql_error());
+                mysqli_close($connect);
+                header("Location: subject.php?id=$subject_id");
+            }
+
 
             $question = "SELECT title FROM subjects WHERE subject_id = $subject_id";
             $result = mysqli_query($connect, $question) or die('Question 1'.mysql_error());
-            if(@mysqli_num_rows($result)==1){ // POST SE THEMA POU YPARXEI
+            if(@mysqli_num_rows($result)==1){ // elenxos an yparxxei to thema
                 $insert1 = "INSERT INTO posts (message, subject_id, user_id) VALUES ('$message', '$subject_id', '$current_user')";
                 $res = mysqli_query($connect, $insert1) or die('insert 1'.mysql_error());
                 mysqli_close($connect);
@@ -34,7 +40,7 @@ if(isset($_POST['submit'])){
 
             }
         }
-    }else{
+    }else{ //DHMIOYRGEIA NEOU THEMATOS
         if(empty($_POST['message']) || empty($_POST['title'])){
             $error="<p class='alert alert-danger' id='error'><b>Πρέπει να συμπληρώσετε και τα δύο πεδία</b></p>";
         }else{
