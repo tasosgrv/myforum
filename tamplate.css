@@ -31,6 +31,9 @@
             #end > *{
                 color: white;
             }
-body{
-    background-image: url('img/erb-backgrounds-archive-epic-rap-battles-of-history-forum.jpg');
-}
+            #footer_links{
+                color: white;
+            }
+            body{
+                background-image: url('img/erb-backgrounds-archive-epic-rap-battles-of-history-forum.jpg');
+            }

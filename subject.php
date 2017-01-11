@@ -43,7 +43,7 @@
 
 </head>
 
-<body>
+<body onload="ChangeToLink()">
 
     <!-- NAVBAR AND LOGIN  AND REGISTER BOXEES-->
     <?php

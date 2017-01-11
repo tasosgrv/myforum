@@ -61,6 +61,7 @@
                        <?php }?>
                        <label>Μήνυμα: </label><br>
                        <textarea name="message" class="form-control" cols=100 rows="10" maxlength="2000"></textarea><p></p>
+                       <i>Αν θελετε να προσθέσετε κάποια εικόνα πρέπει την ανεβάσετε σε κάποιo online site</i>
                        <center>
                             <button type="submit" name="submit" class="btn btn-primary">Αποστολή</button>
                             <button type="reset" class="btn btn-default">Καθαρισμός</button><br><br>

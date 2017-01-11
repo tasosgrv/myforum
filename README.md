@@ -55,3 +55,7 @@
 10 Jan 2017
 - added favicon
 - added messages number for each user
+
+11 Jan 2017
+- added social media links
+- added links and img support on subjects.php
