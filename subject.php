@@ -62,8 +62,11 @@
             <?php while($posts_data = mysqli_fetch_array($result)){?>
                 <div class="panel panel-default">
                     <div class="panel-heading">Mήνυμα: #<?php echo $posts_data['post_id']?>
-                        <?php if(isset($_SESSION['user_id']) && $_SESSION['user_id']==$posts_data['user_id']){?>
-                            <a href="form_post.php?id=<?php echo $subject?>&edit=<?php echo $posts_data['post_id']?>"><button type="button" class='btn btn-info'><span class="glyphicon glyphicon-pencil"></span> Edit</button></a>
+                        <?php if(isset($_SESSION['user_id'])){?>
+                            <a href="form_post.php?id=<?php echo $subject?>&reply=<?php echo $posts_data['post_id']?>"><button type="button" class='btn btn-info'><span class="glyphicon glyphicon-pencil"></span> reply</button></a>
+                            <?php if($_SESSION['user_id']==$posts_data['user_id']){?>
+                                <a href="form_post.php?id=<?php echo $subject?>&edit=<?php echo $posts_data['post_id']?>"><button type="button" class='btn btn-info'><span class="glyphicon glyphicon-pencil"></span> Edit</button></a>
+                            <?php } ?>
                         <?php } ?>
                     </div>
                         <div class="panel-body">

@@ -21,6 +21,18 @@
         $result2 = mysqli_query($connect, $question) or die('Error to query 2' .mysqli_connect_error());
         $MESSAGE = mysqli_fetch_array($result2);
     }
+
+    if(isset($_GET['reply']) && is_numeric($_GET['reply']) && empty($_GET['reply'])===false){ // pare to keimeno p einai gia apantisi
+        $post_to_reply = $_GET['reply'];
+        $question = "SELECT message,user_id FROM posts WHERE post_id = $post_to_reply";
+        $result3 = mysqli_query($connect, $question) or die('Error to query 3' .mysqli_connect_error());
+        $MESSAGE_reply = mysqli_fetch_array($result3);
+
+        $question = "SELECT username FROM users WHERE user_id = {$MESSAGE_reply['user_id']}";
+        $result4 = mysqli_query($connect, $question) or die('Error to query 4' .mysqli_connect_error());
+        $username = mysqli_fetch_array($result4);
+
+    }
     include('post.php');
 
 ?>
@@ -66,7 +78,15 @@
                             <input type="text" class="form-control" name="title" maxlength="200" aria-describedby="sizing-addon2"><p></p>
                        <?php }?>
                        <label>Μήνυμα: </label><br>
-                       <textarea name="message" class="form-control" cols=100 rows="10" maxlength="2000"><?php if(!empty($MESSAGE['message']))echo $MESSAGE['message']?></textarea>
+                       <textarea name="message" class="form-control" cols=100 rows="10" maxlength="2000">
+                           <?php if(!empty($MESSAGE['message'])){
+                                echo $MESSAGE['message'];
+                            }else if(!empty($MESSAGE_reply['message'])){
+                                echo "<blockquote>".$MESSAGE_reply['message']."<footer>Έγραψε ο/ή: ".$username['username']."</footer></blockquote><br>";
+                            }
+                           ?>
+
+                       </textarea>
                        <?php if(isset($post_to_edit)){?> <!-- KRYFO PEDIO GIA TO EDIT-->
                             <input type="hidden" name="edit_id" value="<?php echo $post_to_edit ?>"/>
                        <?php } ?>

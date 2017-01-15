@@ -60,3 +60,7 @@
 - added social media links
 - added links and img support on subjects.php'
 - added edit post feature
+
+15 Jan 2017
+- added post reply feature
+- deleted mysqli_close() in line 58 on register.php
