@@ -64,3 +64,6 @@
 15 Jan 2017
 - added post reply feature
 - deleted mysqli_close() in line 58 on register.php
+
+17 Jan 2017
+- fixed bug for locked subjects

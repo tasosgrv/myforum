@@ -11,9 +11,13 @@
     if(isset($_GET['id']) && is_numeric($_GET['id']) && empty($_GET['id'])===false){ //pare ton titlo tou thematos gia neo minima
         $connect = db_connect();
         $subject = $_GET['id'];
-        $question = "SELECT title FROM subjects WHERE subject_id = $subject";
+        $question = "SELECT title,locked FROM subjects WHERE subject_id = $subject";
         $result1 = mysqli_query($connect, $question) or die('Error to query' .mysqli_connect_error());
         $subject_title = mysqli_fetch_array($result1);
+        if($subject_title['locked']==1){    //AN TO THEMA EINAI KLEIDOMENO
+            header("Location: index.php");
+            exit();
+        }
     }
     if(isset($_GET['edit']) && is_numeric($_GET['edit']) && empty($_GET['edit'])===false){ // pare to keimeno p einai na ginei edit
         $post_to_edit = $_GET['edit'];
