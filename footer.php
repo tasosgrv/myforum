@@ -34,7 +34,8 @@
             </div>
           <div class="col-xs-6 col-sm-4" style="border-left:1px solid gray">
             <h1>About</h1>
-              <p>text text</p>
+              <p>Συζητήστε ότι θέμα θέλετε online</p>
+              <p>Created by tasosg4 - Hosted by <a href="000webhost.com">000webhost</a></p>
             </div>
           <!-- Optional: clear the XS cols if their content doesn't match in height -->
           <div class="clearfix visible-xs-block"></div>

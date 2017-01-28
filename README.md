@@ -67,3 +67,7 @@
 
 17 Jan 2017
 - fixed bug for locked subjects
+
+28 Jan 2017
+- added footer about text
+- added description meta tag 
