@@ -16,6 +16,15 @@
             $result1 = mysqli_query($connect, $question) or die('Error to query' .mysqli_connect_error());
             $subject_title = mysqli_fetch_array($result1);
         }
+
+        if(isset($_SESSION['security_level']) && $_SESSION['security_level']==1){ //AM O XRHSTHS EINAI ADMIN
+            if(isset($_POST['delete'])){ //kai an exei patithei to delete
+                $id = $_POST['post_id'];
+                mysqli_query($connect,"DELETE FROM posts WHERE post_id = $id") or die('post delete error' .  mysqli_connect_error());
+                header("Location: subject.php?id=$subject");
+            }
+        }
+
     }else{
         header("Location: index.php");
         exit();
@@ -65,12 +74,18 @@
             <?php while($posts_data = mysqli_fetch_array($result)){?>
                 <div class="panel panel-default">
                     <div class="panel-heading">Mήνυμα: #<?php echo $posts_data['post_id']?>
-                        <?php if(isset($_SESSION['user_id'])){?>
+                        <?php if(isset($_SESSION['user_id'])){?> <!-- AN O XRHSTHS EINAI CONNECTED-->
                             <a href="form_post.php?id=<?php echo $subject?>&reply=<?php echo $posts_data['post_id']?>"><button type="button" class='btn btn-info'><span class="glyphicon glyphicon-pencil"></span> reply</button></a>
-                            <?php if($_SESSION['user_id']==$posts_data['user_id']){?>
+                            <?php if($_SESSION['user_id']==$posts_data['user_id']){?> <!-- AN TO SXOLIO EINAI TOY SYNDEMEMENOY XRHSTH-->
                                 <a href="form_post.php?id=<?php echo $subject?>&edit=<?php echo $posts_data['post_id']?>"><button type="button" class='btn btn-info'><span class="glyphicon glyphicon-pencil"></span> Edit</button></a>
                             <?php } ?>
-                        <?php } ?>
+                            <?php if(isset($_SESSION['security_level']) && $_SESSION['security_level']==1){ ?> <!-- AN O Xrhsths einai ADMIN-->
+                                <form id="delete" method="post" action="">
+                                    <input type="hidden" name="post_id" value="<?php echo $posts_data['post_id']; ?>"/>
+                                    <button class="btn btn-default" name="delete"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+                                </form>
+                            <?php }
+                          } ?>
                     </div>
                         <div class="panel-body">
                          <div class="row"> <!-- SHOW USER INFO -->

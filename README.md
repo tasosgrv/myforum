@@ -71,3 +71,7 @@
 28 Jan 2017
 - added footer about text
 - added description meta tag 
+
+3 Feb 2017
+- added delete button to subjects and posts for admins
+- fixed images scale in posts

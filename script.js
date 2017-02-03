@@ -6,7 +6,7 @@ function urlify(text) {
 var CheckForImage = function CheckForImage(url) { //stin var CheckForImage vazoume function
 
       if ( ( url.indexOf(".jpg") > 0 ) || ( url.indexOf(".png") > 0 ) || ( url.indexOf(".gif") > 0 ) ) {
-          return '<img width="256" height="256" src="' + url + '">' + '<br/>'
+          return '<img src="' + url + '">' + '<br/>'
       } else {
           return '<a href="' + url + '">' + url + '</a>' + '<br/>'
       }	
@@ -34,4 +34,4 @@ $(document).ready(function(){
                       $("#register_bt").toggleClass("active btn-primary");
     				});
 					
-});        	
+});

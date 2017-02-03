@@ -32,6 +32,13 @@
                 header("Location: index.php");
             }
         }
+        if(isset($_POST['delete'])){ //kai an exei patithei to delete
+            $id = $_POST['subject_id'];
+            mysqli_query($connect,"DELETE FROM posts WHERE subject_id = $id") or die('subject delete error' .  mysqli_connect_error());
+            mysqli_query($connect,"DELETE FROM subjects WHERE subject_id = $id") or die('subject delete error' .  mysqli_connect_error());
+
+            header("Location: index.php");
+        }
     }
 
 ?>
@@ -93,12 +100,16 @@
                                             <form id="pin" method="post" action="">
                                                 <input type="hidden" name="subject_id" value="<?php echo $subjects['subject_id']; ?>"/>
                                                 <input type="hidden" name="pinned" value="<?php echo $subjects['pinned']; ?>"/>
-                                                <button class="btn btn-default" name="pin"><span class='glyphicon glyphicon-pushpin'></span> <?php if($subjects['pinned']){echo 'Unpin';}else{echo 'Pin';} ?></button><p></p>
+                                                <button class="btn btn-default" name="pin"><span class='glyphicon glyphicon-pushpin'></span> <?php if($subjects['pinned']){echo 'Unpin';}else{echo 'Pin';} ?></button>
                                             </form><p></p>
                                             <form id="lock" method="post" action="">
                                                 <input type="hidden" name="subject_id" value="<?php echo $subjects['subject_id']; ?>"/>
                                                 <input type="hidden" name="locked" value="<?php echo $subjects['locked']; ?>"/>
-                                                <button class="btn btn-default" name="lock"><span class="glyphicon glyphicon-lock"></span> <?php if($subjects['locked']){echo 'Unlock';}else{echo 'Lock';} ?></button><p></p>
+                                                <button class="btn btn-default" name="lock"><span class="glyphicon glyphicon-lock"></span> <?php if($subjects['locked']){echo 'Unlock';}else{echo 'Lock';} ?></button>
+                                            </form><p></p>
+                                            <form id="delete" method="post" action="">
+                                                <input type="hidden" name="subject_id" value="<?php echo $subjects['subject_id']; ?>"/>
+                                                <button class="btn btn-default" name="delete"><span class="glyphicon glyphicon-trash"></span>Delete</button><p></p>
                                             </form><p></p>
                                           <?php  }  ?>
                                     </td>
