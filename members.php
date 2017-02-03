@@ -106,12 +106,12 @@
                                 </td>
                                 <td>
                                     <?php if($_SESSION['security_level']==1){ ?>
+                                        <?php if($users['user_id']!=$_SESSION['user_id']){ ?>
                                            <form id="change_rank" method="post" action="">
                                                 <input type="hidden" name="user_id" value="<?php echo $users['user_id']; ?>"/>
                                                 <input type="hidden" name="security_level" value="<?php echo $users['security_level']; ?>"/>
                                                 <button class="btn btn-default" name="change_rank"><span class="glyphicon glyphicon-star"></span> Αλλαγή Rank</button><p></p>
                                             </form><p></p>
-                                        <?php if($users['security_level']!=1){ ?>
                                             <form id="change_status" method="post" action="">
                                                 <input type="hidden" name="user_id" value="<?php echo $users['user_id']; ?>"/>
                                                 <input type="hidden" name="active" value="<?php echo $users['active']; ?>"/>

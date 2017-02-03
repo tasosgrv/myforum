@@ -75,3 +75,4 @@
 3 Feb 2017
 - added delete button to subjects and posts for admins
 - fixed images scale in posts
+- fixes admin buttons on members.php
