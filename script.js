@@ -6,9 +6,9 @@ function urlify(text) {
 var CheckForImage = function CheckForImage(url) { //stin var CheckForImage vazoume function
 
       if ( ( url.indexOf(".jpg") > 0 ) || ( url.indexOf(".png") > 0 ) || ( url.indexOf(".gif") > 0 ) ) {
-          return '<img src="' + url + '">' + '<br/>'
+          return '<img class="img-responsive" src="' + url + '">' + '<br/>'
       } else {
-          return '<a href="' + url + '">' + url + '</a>' + '<br/>'
+          return '<a target="_blank" href="' + url + '">' + url + '</a>' + '<br/>'
       }	
 };
 	
