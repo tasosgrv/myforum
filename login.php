@@ -12,8 +12,8 @@
             $connect = db_connect();
             
             // οι τιμες απ τη φορμα μπαινουν σε μεταβλητες
-            $username = mysqli_real_escape_string($connect, $_POST['username']);
-            $password = md5(mysqli_real_escape_string($connect, $_POST['password']));
+            $username = htmlentities(mysqli_real_escape_string($connect, $_POST['username']));
+            $password = htmlentities(md5(mysqli_real_escape_string($connect, $_POST['password'])));
             
             //δημιουργεια ερωτήματος
             $question="SELECT * FROM users WHERE username LIKE '$username' AND password LIKE '$password'";

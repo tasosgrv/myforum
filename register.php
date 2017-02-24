@@ -22,9 +22,9 @@
 
                    //metafora se metavlites
 
-                   $usr = mysqli_real_escape_string($connect, $_POST['username']);
-                   $email = mysqli_real_escape_string($connect, $_POST['email']);
-                   $pass = md5(mysqli_real_escape_string($connect, $_POST['password']));
+                   $usr = htmlentities(mysqli_real_escape_string($connect, $_POST['username']));
+                   $email = htmlentities(mysqli_real_escape_string($connect, $_POST['email']));
+                   $pass = htmlentities(md5(mysqli_real_escape_string($connect, $_POST['password'])));
 
 
                    //-------------------------------------------------------------------

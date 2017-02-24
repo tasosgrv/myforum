@@ -45,7 +45,7 @@ if(isset($_POST['submit'])){
             $error="<p class='alert alert-danger' id='error'><b>Πρέπει να συμπληρώσετε και τα δύο πεδία</b></p>";
         }else{
             $connect = db_connect();
-            $title = mysqli_real_escape_string($connect, $_POST['title']);
+            $title = htmlentities(mysqli_real_escape_string($connect, $_POST['title']));
             $message = mysqli_real_escape_string($connect, $_POST['message']);
 
             $insert2 = "INSERT INTO subjects (title, user_id) VALUES ('$title', '$current_user')";
