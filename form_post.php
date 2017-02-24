@@ -82,15 +82,12 @@
                             <input type="text" class="form-control" name="title" maxlength="200" aria-describedby="sizing-addon2"><p></p>
                        <?php }?>
                        <label>Μήνυμα: </label><br>
-                       <textarea name="message" class="form-control" cols=100 rows="10" maxlength="2000">
-                           <?php if(!empty($MESSAGE['message'])){
+                       <textarea name="message" class="form-control" cols=100 rows="10" maxlength="2000"><?php if(!empty($MESSAGE['message'])){
                                 echo $MESSAGE['message'];
                             }else if(!empty($MESSAGE_reply['message'])){
                                 echo "<blockquote>".$MESSAGE_reply['message']."<footer>Έγραψε ο/ή: ".$username['username']."</footer></blockquote><br>";
                             }
-                           ?>
-
-                       </textarea>
+                           ?></textarea>
                        <?php if(isset($post_to_edit)){?> <!-- KRYFO PEDIO GIA TO EDIT-->
                             <input type="hidden" name="edit_id" value="<?php echo $post_to_edit ?>"/>
                        <?php } ?>

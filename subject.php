@@ -71,14 +71,14 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Mήνυμα: #<?php echo $posts_data['post_id']?>
                         <?php if(isset($_SESSION['user_id'])){?> <!-- AN O XRHSTHS EINAI CONNECTED-->
-                            <a href="form_post.php?id=<?php echo $subject?>&reply=<?php echo $posts_data['post_id']?>"><button type="button" class='btn btn-info'><span class="glyphicon glyphicon-pencil"></span> reply</button></a>
+                            <a href="form_post.php?id=<?php echo $subject?>&reply=<?php echo $posts_data['post_id']?>"><button type="button" class='btn btn-success'><span class="glyphicon glyphicon-pencil"></span> reply</button></a>
                             <?php if($_SESSION['user_id']==$posts_data['user_id']){?> <!-- AN TO SXOLIO EINAI TOY SYNDEMEMENOY XRHSTH-->
-                                <a href="form_post.php?id=<?php echo $subject?>&edit=<?php echo $posts_data['post_id']?>"><button type="button" class='btn btn-info'><span class="glyphicon glyphicon-pencil"></span> Edit</button></a>
+                                <a href="form_post.php?id=<?php echo $subject?>&edit=<?php echo $posts_data['post_id']?>"><button type="button" class='btn btn-info'><span class="glyphicon glyphicon-edit"></span> Edit</button></a>
                             <?php } ?>
                             <?php if(isset($_SESSION['security_level']) && $_SESSION['security_level']==1){ ?> <!-- AN O Xrhsths einai ADMIN-->
                                 <form id="delete" method="post" action="">
                                     <input type="hidden" name="post_id" value="<?php echo $posts_data['post_id']; ?>"/>
-                                    <button class="btn btn-default" name="delete"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+                                    <button class="btn btn-danger" name="delete"><span class="glyphicon glyphicon-trash"></span> Delete</button>
                                 </form>
                             <?php }
                           } ?>
