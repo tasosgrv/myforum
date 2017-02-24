@@ -21,17 +21,3 @@ function ChangeToLink() {
         text[i].innerHTML=html;				 //allakse ton kwdika HTML tis <p> me to perixomeno tis var html	
     }
 }
-
-$(document).ready(function(){
-
-	 				$("#login_bt").click(function () { //login
-                        $("#login_box").slideToggle("slow");
-                        $("#login_bt").toggleClass("active btn-primary");
-
-   				     });
-    				$("#register_bt").click(function () { //register
-           			  $("#register_box").slideToggle("slow");
-                      $("#register_bt").toggleClass("active btn-primary");
-    				});
-					
-});

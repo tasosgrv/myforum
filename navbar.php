@@ -5,8 +5,7 @@
 ?>
 <html lang="">
 <head>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>	<!-- import jquery lib -->
-    <script type="text/javascript" src="script.js"></script>
+
 </head>
 
 <body>
@@ -30,20 +29,20 @@
 
                     <?php }else{ ?>
                         <div class="nav navbar-nav navbar-right collapse navbar-collapse" id="mainbar">
-                            <button class="btn btn-default navbar-btn" id="login_bt"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Σύνδεση</button>
-                            <button class="btn btn-default navbar-btn" id="register_bt"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Εγγραφή</button>&nbsp;
+                            <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#login_box"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Σύνδεση</button>
+                            <button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#register_box"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Εγγραφή</button>
                         </div>
                     <?php } ?>
         </div>    
     </nav>
     
     <div id="container-fluid">		
-                <?php
-                if(!isset($_SESSION['username'])){
-                    include("form_login.php");
-                    include("form_register.php");
-                }
-                ?>
+        <?php
+        if(!isset($_SESSION['username'])){
+            include("form_login.php");
+            include("form_register.php");
+        }
+        ?>
 
         <div id="welcome">
                 <?php
@@ -55,7 +54,9 @@
                 <?php } ?>
         </div>
 
-    </div>	    
+    </div>
     
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>	<!-- import jquery lib -->
+    <script type="text/javascript" src="script.js"></script>
 </body>
 </html>

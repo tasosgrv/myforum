@@ -25,25 +25,39 @@
 </head>
 
 <body>
-                <article id="login_box">
-                    <center>
-                    <?php    
-                    if(isset($_SESSION['username'])){
-                        echo 'Δεν μπορείτε να χρησιμοποιησετε αυτή τη σελιδα';
-                    }else{ ?>    
-                    Εισάγετε τα στοιχεία σας για να συνδεθείτε
-                    <form class="form-horizontal" action="" method="POST"> 
-                        <label>Username:</label>
-                        <input type="text" name="username" maxlength="20" class="font"><p>
-                        <label>Password: </label>
-                        <input type="password" name="password" maxlength="32"><p>
-                        <button type="submit" name="submit_login" class="btn btn-primary">Αποστολή</button>
-                        <button type="reset" class="btn btn-default">Καθαρισμός</button><br><br>
-                        
-                    </form>
-                    <?php } ?>
-                    </center>
-				</article>
-                <?php echo $error ?>
+<!-- Modal -->
+<div class="modal fade" id="login_box" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Σύνδεση</h4>
+      </div>
+      <div class="modal-body" style="background-color: gainsboro">
+
+        <center>
+            <?php
+            if(isset($_SESSION['username'])){
+                echo 'Δεν μπορείτε να χρησιμοποιησετε αυτή τη σελιδα';
+            }else{ ?>
+            Εισάγετε τα στοιχεία σας για να συνδεθείτε<p>
+            <form class="form-horizontal" action="" method="POST">
+                <label>Username:</label>
+                <input type="text" name="username" maxlength="20" class="font"><p></p>
+                <label>Password: </label>
+                <input type="password" name="password" maxlength="32"><p></p>
+                <button type="submit" name="submit_login" class="btn btn-primary">Αποστολή</button>
+                <button type="reset" class="btn btn-default">Καθαρισμός</button><br><br>
+            </form>
+            <?php } ?>
+          </center>
+      </div> <!-- modal-body !-->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Άκυρο</button>
+      </div>
+    </div><!-- modal-content !-->
+  </div><!-- modal-dialog!-->
+</div><!-- modal !-->
+    <?php echo $error ?>
 </body>
 </html>
