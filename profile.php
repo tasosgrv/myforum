@@ -104,7 +104,7 @@
                 <?php } ?>
 
             <?php }else{ //an den yparxei conneted xrisths ?>
-                <p class='alert alert-danger' id='error'>Για να μπορέσεις να δεις τα προφίλ των χρηστών πρέπει να είσαι <b><a href="navbar.php">συνδεδεμένος</a></b><br>Αν δεν έχεις λογαριασμό, κάνε <b><a href="navbar.php">εγγραφή</a></b></p>
+                <p class='alert alert-danger' id='error'>Για να μπορέσεις να δεις τα προφίλ των χρηστών πρέπει να είσαι <b>συνδεδεμένος</b><br>Αν δεν έχεις λογαριασμό, κάνε <b>εγγραφή</b></p>
             <?php } ?>
         </div>
     
@@ -114,5 +114,6 @@
     ?>
         <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>	<!-- import jquery lib -->
 </body>
 </html>

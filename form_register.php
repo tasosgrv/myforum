@@ -38,7 +38,7 @@
         if(isset($_SESSION['username'])){
             echo 'Δεν μπορείτε να χρησιμοποιησετε αυτή τη σελιδα';
         }else{ ?>
-        Εισάγετε τα στοιχεία σας για να κανετε εγγραφη <b>(με * τα απαραιτητα πεδία)</b>
+        Εισάγετε τα στοιχεία σας για να κανετε εγγραφη <b>(με * τα απαραιτητα πεδία)</b><p>
         <form class="form-horizontal" action="" method="post">
             <label>*Username: </label>
             <input type="text" name="username" maxlength="20"><p><p>
