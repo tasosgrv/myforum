@@ -3,7 +3,7 @@
 <?php
     session_start();
     require_once('utils.php');
-    $error='';
+    $error = array();
     $success ='';
     $users = get_user_id($_GET['id']);
 
@@ -71,7 +71,11 @@
                                         <button type="submit" name="submit" class="btn btn-primary">Ενημέρωση Προφίλ</button>
                                     </form>
                                         <?php echo $success ?>
-                                        <?php echo $error ?>
+                                        <?php
+                                            foreach ($error as $er){
+                                                echo $er;
+                                            }
+                                        ?>
                                     </div>
                                 </div>
                             </div>
