@@ -76,3 +76,9 @@
 - added delete button to subjects and posts for admins
 - fixed images scale in posts
 - fixes admin buttons on members.php
+
+26 Feb 2017
+- fixed bug on changed_data.phph
+- changed the way login and register form shows (bootstrap modal)
+- added email validation check and htmlentities() function
+- added CSS for inputs on modals
