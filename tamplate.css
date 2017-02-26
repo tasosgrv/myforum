@@ -1,39 +1,45 @@
 
-			article{
-				margin-top: 32px;
-				padding: 70px 10px 10px 10px;
-				background-color: gainsboro;
-                display: none;
-				z-index: 1;
-			}
-            
-            #welcome{
-                margin-top: 40px;
-                padding: 30px 10px 30px 10px;
-            }
+article{
+    margin-top: 32px;
+    padding: 70px 10px 10px 10px;
+    background-color: gainsboro;
+    display: none;
+    z-index: 1;
+}
+
+#welcome{
+    margin-top: 40px;
+    padding: 30px 10px 30px 10px;
+}
 
 
-            #main{
-                margin-top: 1px;
-                padding: 10px 10px 10px 10px;    
-            }
-            
-            #error{
-                margin-top: 40px;
-            }
+#main{
+    margin-top: 1px;
+    padding: 10px 10px 10px 10px;
+}
 
-			#end{
-                display: block;
-                background-color: #343030;
-				padding: 10px 10px 10px 10px;
-			}
+#error{
+    margin-top: 40px;
+}
 
-            #end > *{
-                color: white;
-            }
-            #footer_links{
-                color: white;
-            }
-            body{
-                background-image: url('img/erb-backgrounds-archive-epic-rap-battles-of-history-forum.jpg');
-            }
+#end{
+    display: block;
+    background-color: #343030;
+    padding: 10px 10px 10px 10px;
+}
+
+#end > *{
+    color: white;
+}
+#footer_links{
+    color: white;
+}
+body{
+    background-image: url('img/erb-backgrounds-archive-epic-rap-battles-of-history-forum.jpg');
+}
+
+
+#inputsOnModal > input{
+border: 2px solid #ccc;
+padding: 4px 5px;
+}

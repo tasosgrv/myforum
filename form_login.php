@@ -33,15 +33,14 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Σύνδεση</h4>
       </div>
-      <div class="modal-body" style="background-color: gainsboro">
-
+      <div class="modal-body">
         <center>
             <?php
             if(isset($_SESSION['username'])){
                 echo 'Δεν μπορείτε να χρησιμοποιησετε αυτή τη σελιδα';
             }else{ ?>
             Εισάγετε τα στοιχεία σας για να συνδεθείτε<p>
-            <form class="form-horizontal" action="" method="POST">
+            <form class="form-horizontal" action="" method="POST" id="inputsOnModal">
                 <label>Username:</label>
                 <input type="text" name="username" maxlength="20" class="font"><p></p>
                 <label>Password: </label>

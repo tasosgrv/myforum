@@ -11,6 +11,10 @@
 
            if(preg_match("/\\s/", $_POST['username']) == true){
                $error="<p class='alert alert-danger' id='error'>Το username σας δεν πρέπει να περιέχει κενά </p>";
+           }else if(preg_match("/\\s/", $_POST['email']) == true){
+               $error="<p class='alert alert-danger' id='error'>Το e-mail σας δεν πρέπει να περιέχει κενά </p>";
+           }else if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+               $error="<p class='alert alert-danger' id='error'>Παρακαλώ εισάγετε ένα έγκυρο e-mail</p>";
            }else if($_POST['password'] != $_POST['repass']){
                $error="<p class='alert alert-danger' id='error'>Το περιεχόμενο των Password και Repeat Password πρέπει να είναι ίδια</p>";
            }else{
