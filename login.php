@@ -31,7 +31,7 @@
                         if($key!='password')
                             $_SESSION[$key]=$value;
                     }
-                    header("Location: /forum/index.php"); //Ανακατευθυνση στην αρχικη
+                    header("Location: index.php"); //Ανακατευθυνση στην αρχικη
                 }
             }else{
                 $error="<p class='alert alert-danger' id='error'><b>To username η το password είναι λάθος</b></p>"; //αλλίως εμφανισε λαθος
