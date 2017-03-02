@@ -82,3 +82,7 @@
 - changed the way login and register form shows (bootstrap modal)
 - added email validation check and htmlentities() function
 - added CSS for inputs on modals
+
+2 Mar 2017
+- fixed issue #1
+- changed some css

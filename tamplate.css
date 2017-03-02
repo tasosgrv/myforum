@@ -42,7 +42,7 @@ body{
 }
 
 /* FOTTER CSS START*/
-#end{
+#end > *{
     display: block;
     background-color: #343030;
     padding: 10px 10px 10px 10px;
