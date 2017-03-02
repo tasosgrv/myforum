@@ -38,24 +38,24 @@
         if(isset($_SESSION['username'])){
             echo 'Δεν μπορείτε να χρησιμοποιησετε αυτή τη σελιδα';
         }else{ ?>
-        Εισάγετε τα στοιχεία σας για να κανετε εγγραφη <b>(με * τα απαραιτητα πεδία)</b><p>
-        <form class="form-horizontal" action="" method="post">
+            Εισάγετε τα στοιχεία σας για να κανετε εγγραφη <b>(με * τα απαραιτητα πεδία)</b><p></p>
+        <form class="form-horizontal" action="" method="post" id="inputsOnModal">
             <label>*Username: </label>
-            <input type="text" name="username" maxlength="20"><p><p>
+            <input type="text" name="username" maxlength="20"><p></p>
             <label>*E-mail: </label>
-            <input type="email" name="email" maxlength="100"><p>
+            <input type="email" name="email" maxlength="100"><p></p>
             <label>*Password: </label>
-            <input type="password" name="password" maxlength="32"><p>
+            <input type="password" name="password" maxlength="32"><p></p>
             <label>*Repeat Password: </label>
-            <input type="password" name="repass" maxlength="32"><p>
-            <button type="submit" name="submit_register" class="btn btn-primary">Αποστολή</button>
+            <input type="password" name="repass" maxlength="32"><p></p>
+            <button type="submit" name="submit_register" class="btn btn-primary">Εγγραφή</button>
             <button type="reset" class="btn btn-default">Καθαρισμός</button><br><br>
         </form>
         <?php } ?>
         </center>
       </div> <!-- modal-body !-->
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Άκυρο</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Άκυρο</button>
       </div>
     </div><!-- modal-content !-->
   </div><!-- modal-dialog!-->

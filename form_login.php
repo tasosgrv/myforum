@@ -45,14 +45,14 @@
                 <input type="text" name="username" maxlength="20" class="font"><p></p>
                 <label>Password: </label>
                 <input type="password" name="password" maxlength="32"><p></p>
-                <button type="submit" name="submit_login" class="btn btn-primary">Αποστολή</button>
+                <button type="submit" name="submit_login" class="btn btn-primary">Σύνδεση</button>
                 <button type="reset" class="btn btn-default">Καθαρισμός</button><br><br>
             </form>
             <?php } ?>
           </center>
       </div> <!-- modal-body !-->
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Άκυρο</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Άκυρο</button>
       </div>
     </div><!-- modal-content !-->
   </div><!-- modal-dialog!-->
