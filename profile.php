@@ -83,7 +83,7 @@
                                                 }
                                             ?>
                                         </div> <!-- tab-panel!-->
-                                        <div role="tabpanel" class="tab-pane" id="change_pass">
+                                        <div role="tabpanel" class="tab-pane active" id="change_pass">
                                             <form class="form-horizontal" action="" method="post">
                                                 <label>Τρέχων Κωδικός</label><br>
                                                 <input type="password" name="old_password" maxlength="32"><p></p>
