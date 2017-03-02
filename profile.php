@@ -83,7 +83,7 @@
                                                 }
                                             ?>
                                         </div> <!-- tab-panel!-->
-                                        <div role="tabpanel" class="tab-pane active" id="change_pass">
+                                        <div role="tabpanel" class="tab-pane" id="change_pass">
                                             <form class="form-horizontal" action="" method="post">
                                                 <label>Τρέχων Κωδικός</label><br>
                                                 <input type="password" name="old_password" maxlength="32"><p></p>
@@ -119,7 +119,7 @@
                                         <li role="presentation"><a href="#recent_posts" aria-controls="recent_posts" role="tab" data-toggle="tab">Πρόσφατες Δημοσιεύσεις</a></li>
                                     </ul>
                                     <div class="tab-content">
-                                        <div role="tabpanel" class="tab-pane" id="user_data">
+                                        <div role="tabpanel" class="tab-pane active" id="user_data">
                                             <form class="form-horizontal">
                                                 <label>Όνομα χρήστη:</label><br>
                                                 <input type="text" name="username" value="<?php echo $users['username']?>" maxlength="20" disabled="true"><p></p>
