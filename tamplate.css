@@ -45,8 +45,12 @@ body{
 #end > *{
     display: block;
     background-color: #343030;
+    color: white;
     padding: 10px 10px 10px 10px;
 }
-#footer_links{
-    color: white;
+#footer_links {
+    color: #afd8ff;
+}
+#footer_links:hover {
+    color: #2c9aff;
 }

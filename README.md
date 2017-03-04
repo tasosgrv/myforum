@@ -86,3 +86,7 @@
 2 Mar 2017
 - fixed issue #1
 - changed some css
+
+4 Mar 2017
+- fixed some footer css
+- fixed bug about edit and reply posts

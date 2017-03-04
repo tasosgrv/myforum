@@ -14,28 +14,36 @@
         $question = "SELECT title,locked FROM subjects WHERE subject_id = $subject";
         $result1 = mysqli_query($connect, $question) or die('Error to query' .mysqli_connect_error());
         $subject_title = mysqli_fetch_array($result1);
-        if($subject_title['locked']==1){    //AN TO THEMA EINAI KLEIDOMENO
+        if($subject_title['locked']==1){    //EXCEPTION AN TO THEMA EINAI KLEIDOMENO
             header("Location: index.php");
             exit();
         }
     }
     if(isset($_GET['edit']) && is_numeric($_GET['edit']) && empty($_GET['edit'])===false){ // pare to keimeno p einai na ginei edit
         $post_to_edit = $_GET['edit'];
-        $question = "SELECT message FROM posts WHERE post_id = $post_to_edit";
+        $question = "SELECT message, user_id FROM posts WHERE post_id = $post_to_edit AND subject_id = $subject AND user_id = {$_SESSION['user_id']}";
         $result2 = mysqli_query($connect, $question) or die('Error to query 2' .mysqli_connect_error());
-        $MESSAGE = mysqli_fetch_array($result2);
+        if(@mysqli_num_rows($result2)==0){
+            header("Location: index.php");
+            exit();
+        }else{
+            $MESSAGE = mysqli_fetch_array($result2);
+        }
     }
 
     if(isset($_GET['reply']) && is_numeric($_GET['reply']) && empty($_GET['reply'])===false){ // pare to keimeno p einai gia apantisi
         $post_to_reply = $_GET['reply'];
-        $question = "SELECT message,user_id FROM posts WHERE post_id = $post_to_reply";
+        $question = "SELECT message,user_id FROM posts WHERE post_id = $post_to_reply AND subject_id = $subject";
         $result3 = mysqli_query($connect, $question) or die('Error to query 3' .mysqli_connect_error());
-        $MESSAGE_reply = mysqli_fetch_array($result3);
-
-        $question = "SELECT username FROM users WHERE user_id = {$MESSAGE_reply['user_id']}";
-        $result4 = mysqli_query($connect, $question) or die('Error to query 4' .mysqli_connect_error());
-        $username = mysqli_fetch_array($result4);
-
+        if(@mysqli_num_rows($result3)==0){
+            header("Location: index.php");
+            exit();
+        }else{
+            $MESSAGE_reply = mysqli_fetch_array($result3);
+            $question = "SELECT username FROM users WHERE user_id = {$MESSAGE_reply['user_id']}";
+            $result4 = mysqli_query($connect, $question) or die('Error to query 4' .mysqli_connect_error());
+            $username = mysqli_fetch_array($result4);
+        }
     }
     include('post.php');
 
